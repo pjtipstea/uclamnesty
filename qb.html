@@ -461,7 +461,7 @@
         function showQuestion(questionNumber) {
             currentQuestion = questionNumber;
             var question = questions[currentQuestion];
-            quizContainer.innerHTML = question.question + '<br>';
+            quizContainer.innerHTML = question.question + '<br>' + '<br>';
             for (var i = 0; i < question.choices.length; i++) {
                 quizContainer.innerHTML += '<input type="radio" name="choice" onclick="recordAnswer(' + i + ')">' + question.choices[i] + '<br>';
             }
@@ -473,8 +473,8 @@
 
         function submitAnswer() {
             var correct = userAnswer === questions[currentQuestion].answer;
-            resultsContainer.innerHTML = correct ? 'Correct!' : 'Incorrect!';
-            resultsContainer.innerHTML += '<br>' + 'Explanation: ' + questions[currentQuestion].explanation;
+            // resultsContainer.innerHTML = correct ? 'Correct!' : 'Incorrect!';
+            resultsContainer.innerHTML += '<br>' + '' + questions[currentQuestion].explanation;
 
             // Highlight correct answer
             var correctIndex = questions[currentQuestion].choices.indexOf(questions[currentQuestion].answer);
