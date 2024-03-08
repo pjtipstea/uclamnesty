@@ -532,6 +532,7 @@
         function goToQuestion(questionNumber) {
             showQuestion(questionNumber);
             resultsContainer.innerHTML = '';
+            document.getElementById('submit').style.display = 'block';  // Add this line
             document.getElementById('next').style.display = 'none';
         }
 
