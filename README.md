@@ -1,4 +1,4 @@
-Disclaimer: AI-generated MCQ questions based on UCL Amnesty notes and questions. Use at your own risk.
+Disclaimer: AI-generated MCQ questions based on UCL Amnesty notes and questions. Use at your own risk. Questions were generated based on notes written by students (along with their best guesses of the answers), so always cross-reference answers with reliable sources, and the latest guidelines. 
 
 ## Papers
 
