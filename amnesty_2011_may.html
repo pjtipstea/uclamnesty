@@ -5,15 +5,19 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #121212;
+            color: white
+            /* Dark background */
         }
 
         #quiz {
             margin-bottom: 20px;
-            background-color: white;
+            background-color: #333333;
+            /* Darker shade for the quiz box */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+            /* Lighter shadow for dark mode */
         }
 
         button {
@@ -21,13 +25,16 @@
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: #4CAF50;
+            background-color: #006400;
+            /* Dark green */
             color: white;
+            /* Keep text white for contrast */
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #008000;
+            /* Slightly lighter green on hover */
         }
 
         #question-nav {
@@ -38,34 +45,37 @@
             /* For Firefox */
             -ms-overflow-style: none;
             /* For Internet Explorer and Edge */
-
         }
 
         #question-nav::-webkit-scrollbar {
             display: none;
-            /* For Chrome, Safari and Opera */
+            /* For Chrome, Safari, and Opera */
         }
-
 
         #question-nav button {
             margin-right: 5px;
             display: inline-block;
-            background-color: white;
-            color: black;
+            background-color: #555555;
+            /* Darker background for nav buttons */
+            color: white;
+            /* Light text for contrast */
         }
 
         #question-nav button.current {
-            background-color: #4CAF50;
+            background-color: #006400;
+            /* Dark green to indicate current question */
             color: white;
         }
 
         .correct-answer {
-            color: green;
+            color: limegreen;
+            /* Brighter green for better visibility in dark mode */
             font-weight: bold;
         }
 
         .incorrect-answer {
-            color: red;
+            color: #ff6347;
+            /* Tomato color for incorrect, better visibility */
         }
     </style>
     </style>
@@ -129,7 +139,7 @@
             { 'question': 'A 55-year-old man is given adenosine for a tachyarrhythmia. Which of the following is a common side effect of this medication?', 'choices': ['A) Hypotension', 'B) Bradycardia', 'C) Bronchospasm', 'D) Hypoglycemia', 'E) Hyperkalemia'], 'answer': 'C) Bronchospasm', 'explanation': '** Adenosine can cause bronchospasm, especially in patients with asthma. Other common side effects include flushing due to vasodilation, chest discomfort, and transient dyspnea.' },
             { 'question': 'A 70-year-old woman with atrial fibrillation is started on verapamil for rate control. Which of the following is a potential effect of this medication?', 'choices': ['A) Increased inotropy', 'B) Decreased inotropy', 'C) Increased chronotropy', 'D) Decreased chronotropy', 'E) No effect on inotropy or chronotropy'], 'answer': 'B) Decreased inotropy', 'explanation': '** Verapamil is a non-dihydropyridine calcium channel blocker that can decrease inotropy (contractility) and chronotropy (heart rate). It can also block the AV node.' },
             { 'question': 'A 60-year-old man with asthma and intermittent atrial fibrillation (AF) presents with a heart rate of 120 bpm and a blood pressure of 145/80 mmHg. His symptoms have been present for over 3 weeks. What is the most appropriate treatment?', 'choices': ['A) Immediate direct current (DC) cardioversion', 'B) DC cardioversion after 4 weeks of anticoagulation with warfarin', 'C) DC cardioversion after 4 weeks of anticoagulation with dabigatran', 'D) Rate control with metoprolol', 'E) Rate control with verapamil'], 'answer': 'E) Rate control with verapamil', 'explanation': '** In patients with AF and asthma, verapamil can be used for rate control. Beta blockers, such as metoprolol, should be avoided due to the risk of bronchospasm. Cardioversion can be considered if the AF is causing significant symptoms, but anticoagulation is typically required for several weeks beforehand to reduce the risk of thromboembolism.' },
-            { 'question': 'A 65-year-old man presents with intermittent atrial fibrillation (AF) that started less than 24 hours ago. What is the most appropriate treatment?', 'choices': ['A) Immediate direct current (DC) cardioversion', 'B) DC cardioversion after 4 weeks of anticoagulation with warfarin', 'C) DC cardioversion after 4 weeks of anticoagulation with dabigatran', 'D) Rate control with metoprolol', 'E) Rate control with verapamil'], 'answer': 'A) Immediate direct current (DC) cardioversion', 'explanation': '** In patients with AF of less than 24 hours duration, immediate DC cardioversion can be performed without the need for anticoagulation. If the AF has been present for more than 24 hours, anticoagulation is typically required for several weeks before cardioversion to reduce the risk of thromboembolism.' },
+            // { 'question': 'A 65-year-old man presents with intermittent atrial fibrillation (AF) that started less than 24 hours ago. What is the most appropriate treatment?', 'choices': ['A) Immediate direct current (DC) cardioversion', 'B) DC cardioversion after 4 weeks of anticoagulation with warfarin', 'C) DC cardioversion after 4 weeks of anticoagulation with dabigatran', 'D) Rate control with metoprolol', 'E) Rate control with verapamil'], 'answer': 'A) Immediate direct current (DC) cardioversion', 'explanation': '** In patients with AF of less than 24 hours duration, immediate DC cardioversion can be performed without the need for anticoagulation. If the AF has been present for more than 24 hours, anticoagulation is typically required for several weeks before cardioversion to reduce the risk of thromboembolism.' },
             { 'question': 'A 70-year-old woman presents with atrial fibrillation (AF). What is the most appropriate initial treatment for rate control?', 'choices': ['A) Metoprolol', 'B) Verapamil', 'C) Diltiazem', 'D) Amiodarone', 'E) Digoxin'], 'answer': 'A) Metoprolol', 'explanation': '** Beta blockers, such as metoprolol, are first-line treatment for rate control in AF. Non-dihydropyridine calcium channel blockers, such as verapamil or diltiazem, can be used if beta blockers are contraindicated or not tolerated.' },
             { 'question': 'A 60-year-old man with heart failure and structural heart disease presents with atrial fibrillation (AF). Which of the following medications should be avoided?', 'choices': ['A) Metoprolol', 'B) Verapamil', 'C) Diltiazem', 'D) Flecainide', 'E) Amiodarone'], 'answer': 'D) Flecainide', 'explanation': '** Flecainide, a class IC antiarrhythmic, should be avoided in patients with AF and structural heart disease due to the risk of proarrhythmia.' },
             { 'question': 'A 50-year-old woman presents with paroxysmal atrial fibrillation (AF). Which of the following medications can be used to reduce the frequency of her AF episodes?', 'choices': ['A) Metoprolol', 'B) Verapamil', 'C) Diltiazem', 'D) Flecainide', 'E) Sotalol'], 'answer': 'E) Sotalol', 'explanation': '** Sotalol, a class III antiarrhythmic, can be used to reduce the frequency of paroxysmal AF episodes.' },
